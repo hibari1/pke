@@ -24,6 +24,13 @@ To pip install `pke` (fork, added German language support) from github:
 
 ```bash
 pip install git+https://github.com/hibari1/pke.git
+
+# if after the installation `ModuleNotFoundError: No module named 'pke'` appears
+# or `python -c "import pke; from pke.base import ISO_to_language; print (ISO_to_language.keys())"`
+# does not include 'de', try pip install --upgrade git+https://github.com/hibari1/pke.git
+
+python -m spacy download de_core_news_sm
+python -m spacy download de
 ```
 
 ## Minimal example
