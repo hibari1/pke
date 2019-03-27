@@ -1,9 +1,10 @@
 # `pke` - python keyphrase extraction
+(fork from: https://github.com/boudinfl/pke ; added: German language support)
 
 `pke` is an **open source** python-based **keyphrase extraction** toolkit. It
 provides an end-to-end keyphrase extraction pipeline in which each component can
-be easily modified or extended to develop new models. `pke` also allows for 
-easy benchmarking of state-of-the-art keyphrase extraction models, and 
+be easily modified or extended to develop new models. `pke` also allows for
+easy benchmarking of state-of-the-art keyphrase extraction models, and
 ships with supervised models trained on the
 [SemEval-2010 dataset](http://aclweb.org/anthology/S10-1004).
 
@@ -19,10 +20,10 @@ ships with supervised models trained on the
 
 ## Installation
 
-To pip install `pke` from github:
+To pip install `pke` (fork, added German language support) from github:
 
 ```bash
-pip install git+https://github.com/boudinfl/pke.git
+pip install git+https://github.com/hibari1/pke.git
 ```
 
 ## Minimal example
@@ -54,6 +55,27 @@ keyphrases = extractor.get_n_best(n=10)
 ```
 
 A detailed example is provided in the [`examples/`](examples/) directory.
+
+
+### German language (minimal example: pke.unsupervised.TfIdf())
+
+```python
+
+import pke
+extractor = pke.unsupervised.TfIdf()
+extractor.load_document(input='/path/to/german/input.txt', language='de', normalization=None)
+
+# stopwords : (List) list of German stopwords + list(string.punctuation)
+# ngrams : (Int) n max for keywords candidates length (number of words); e.g. 2 for unigram and bigrams
+extractor.candidate_selection(n=ngrams, stoplist=stopwords)
+
+# df_counts_file_location: location of the df counts stats file created against a German corpus with: `pke/examples/compute-df-counts.py`
+df_tfidf = pke.load_document_frequency_file(input_file=df_counts_file_location)
+
+extractor.candidate_weighting(df=df_tfidf)
+
+keyphrases = extractor.get_n_best(n=10)
+```
 
 ## Getting started
 

@@ -325,7 +325,7 @@ def compute_lda_model(input_dir,
         # loop through sentences
         for sentence in doc.sentences:
             # get the tokens (stems) from the sentence if they are not
-            # punctuation marks 
+            # punctuation marks
             text.extend([sentence.stems[i] for i in range(sentence.length)
                          if sentence.pos[i] != 'PUNCT' and
                          sentence.pos[i].isalpha()])

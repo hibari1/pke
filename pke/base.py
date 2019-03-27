@@ -23,7 +23,8 @@ from builtins import str
 
 ISO_to_language = {'en': 'english',
                    'pt': 'portuguese',
-                   'fr': 'french'}
+                   'fr': 'french',
+                   'de': 'german'}
 
 escaped_punctuation = {'-lrb-': '(', '-rrb-': ')', '-lsb-': '[', '-rsb-': ']',
                        '-lcb-': '{', '-rcb-': '}'}
