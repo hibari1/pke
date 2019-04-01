@@ -7,3 +7,4 @@ scipy
 sklearn
 unidecode
 future
+https://github.com/explosion/spacy-models/releases/download/de_core_news_md-2.1.0/de_core_news_md-2.1.0.tar.gz#egg=de_core_news_sm
