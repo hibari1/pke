@@ -5,6 +5,7 @@
 
 import xml.etree.ElementTree as etree
 import spacy
+import de_core_news_sm
 
 from pke.data_structures import Document
 
@@ -70,8 +71,11 @@ class RawTextReader(Reader):
         """
 
         max_length = kwargs.get('max_length', 10**6)
-        nlp = spacy.load(self.language,
-                         max_length=max_length)
+
+        if self.language = 'de':
+            nlp = de_core_news_sm.load(max_length=max_length)
+        else:
+            nlp = spacy.load(self.language, max_length=max_length)
         spacy_doc = nlp(text)
 
         sentences = []
@@ -89,4 +93,3 @@ class RawTextReader(Reader):
                                       **kwargs)
 
         return doc
-
