@@ -72,7 +72,7 @@ class RawTextReader(Reader):
 
         max_length = kwargs.get('max_length', 10**6)
 
-        if self.language = 'de':
+        if self.language == 'de':
             nlp = de_core_news_md.load(max_length=max_length)
         else:
             nlp = spacy.load(self.language, max_length=max_length)
